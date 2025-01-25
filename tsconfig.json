@@ -4,9 +4,11 @@
     "declaration": true,
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
+    // Config define decorators
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
+    // End  config define decorators
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
