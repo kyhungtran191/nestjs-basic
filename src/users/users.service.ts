@@ -11,7 +11,6 @@ export class UsersService {
   getHashPassword(password: string) {
     const salt = genSaltSync(10);
     const hash = hashSync(password, salt);
-    console.log('Hash password', hash);
     return hash;
   }
   async create(createUserDto: CreateUserDto) {
@@ -32,7 +31,7 @@ export class UsersService {
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
-    return `This action updates a #${id} user`;
+    return this.userModel.updateOne({ _id: id }, { $set: updateUserDto });
   }
 
   remove(id: number) {

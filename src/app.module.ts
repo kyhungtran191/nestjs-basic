@@ -15,6 +15,7 @@ import { UsersModule } from './users/users.module';
       inject: [ConfigService],
     }),
     ConfigModule.forRoot({ isGlobal: true }),
+    // User Module
     UsersModule,
   ],
   controllers: [AppController],
