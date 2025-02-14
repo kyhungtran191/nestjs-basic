@@ -9,6 +9,8 @@
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
     // End  config define decorators
+    // Config ms
+    "esModuleInterop": true,
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
