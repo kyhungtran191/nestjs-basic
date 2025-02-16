@@ -7,6 +7,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { softDeletePlugin } from 'soft-delete-plugin-mongoose';
+import { CompaniesModule } from './companies/companies.module';
 @Module({
   imports: [
     // Get the DB_URL from the .env file
@@ -28,6 +29,8 @@ import { softDeletePlugin } from 'soft-delete-plugin-mongoose';
     UsersModule,
     // Auth Module
     AuthModule,
+    // Company Module
+    CompaniesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
