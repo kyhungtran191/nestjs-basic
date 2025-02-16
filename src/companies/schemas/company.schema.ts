@@ -12,7 +12,7 @@ export class Company {
   address: string;
 
   @Prop()
-  breed: string;
+  description: string;
 
   @Prop()
   createdAt: Date;
