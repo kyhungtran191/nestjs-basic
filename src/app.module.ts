@@ -6,6 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { softDeletePlugin } from 'soft-delete-plugin-mongoose';
 @Module({
   imports: [
     // Get the DB_URL from the .env file
@@ -13,7 +14,13 @@ import { AuthModule } from './auth/auth.module';
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
         uri: configService.get<string>('DB_URL'),
+        // Config soft delete mongo
+        connectionFactory: (connection) => {
+          connection.plugin(softDeletePlugin);
+          return connection;
+        },
       }),
+
       inject: [ConfigService],
     }),
     ConfigModule.forRoot({ isGlobal: true }),

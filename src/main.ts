@@ -13,6 +13,8 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
   // Error Pipe for validation listener
   app.useGlobalPipes(new CustomValidationPipe());
+  //Config CORS
+  app.enableCors();
   // Get env variable
   const PORT = configService.get('PORT');
   await app.listen(PORT || 3000);
